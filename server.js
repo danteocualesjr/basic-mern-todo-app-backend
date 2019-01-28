@@ -10,6 +10,16 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/todos', todoRoutes);
 
+todoRoutes.route('/').get(function(req, res) {
+    todoRoutes.propfind(function(err, todos) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(todos);
+        }
+    });
+});
+
 mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
