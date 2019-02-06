@@ -10,8 +10,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/todos', todoRoutes);
 
-// Add more routes here
-
 todoRoutes.route('/').get(function(req, res) {
     todoRoutes.propfind(function(err, todos) {
         if (err) {
