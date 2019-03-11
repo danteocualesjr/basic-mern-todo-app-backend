@@ -20,6 +20,8 @@ todoRoutes.route('/').get(function(req, res) {
     });
 });
 
+// Add routes here.
+
 mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
